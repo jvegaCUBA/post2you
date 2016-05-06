@@ -1,0 +1,23 @@
+﻿{
+    "authors": [ "Lxxx" ],
+    "description": "NetKnowledge.Models",
+    "frameworks": {
+        "dnx451": {
+            "frameworkAssemblies": {
+                "System.Data.DataSetExtensions": "4.0.0.0",
+                "System.Data.Entity": "4.0.0.0",
+                "System.Data.Entity.Design": "4.0.0.0"
+            },
+            "dependencies": {
+            }
+        },
+        "dnxcore50": { }
+    },
+    "licenseUrl": "",
+    "dependencies": {
+        "mkm.model": "1.0.0-*"
+    },
+    "projectUrl": "",
+    "tags": [ "" ],
+    "version": "1.0.0-*"
+}

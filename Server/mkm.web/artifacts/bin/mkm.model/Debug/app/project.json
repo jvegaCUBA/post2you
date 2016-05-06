@@ -1,0 +1,32 @@
+{
+  "authors": [
+    "Lxxx"
+  ],
+  "commands": {
+    "web": "Microsoft.AspNet.Server.Kestrel",
+    "ef": "EntityFramework.Commands"
+  },
+  "dependencies": {
+    "mkm.model": "1.0.0"
+  },
+  "description": "NetKnowledge.Models",
+  "frameworks": {
+    "dnx451": {
+      "frameworkAssemblies": {
+        "System.Data.DataSetExtensions": "4.0.0.0",
+        "System.Data.Entity": "4.0.0.0",
+        "System.Data.Entity.Design": "4.0.0.0"
+      },
+      "dependencies": {}
+    },
+    "dnxcore50": {}
+  },
+  "licenseUrl": "",
+  "projectUrl": "",
+  "tags": [
+    ""
+  ],
+  "version": "1.0.0-*",
+  "entryPoint": "mkm.model",
+  "loadable": false
+}
