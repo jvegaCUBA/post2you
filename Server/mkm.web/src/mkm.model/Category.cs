@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 namespace mkm.model
 {
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public class Category
     {
         public long Id { get; set; }
@@ -15,12 +17,14 @@ namespace mkm.model
 
         public TimeSpan Updated { get; set; }
 
-        public long? ApplicationUserId { get; set; }
+        public long? UserId { get; set; }
 
+        [ForeignKey("UserId")]
         public ApplicationUser Author { get; set; }
 
-        public long? CatgoryId { get; set; }
+        public long? CategoryId { get; set; }
 
+        [ForeignKey("CategoryId")]
         public Category ParentCategory { get; set; }
 
         public ICollection<Category> SubCategories { get; set; } 

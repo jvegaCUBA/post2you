@@ -13,10 +13,22 @@ namespace mkm.model
 
         public string LastName { get; set; }
 
+        public int FollowsCount { get; set; }
+
+        public int FollowersCount { get; set; }
+
+        public int ActiveReservations { get; set; }
+
+        public int ReservationsCount { get; set; }
+
         ICollection<Post> Posts { get; set; }
+
+        ICollection<Like> Likes { get; set; }
 
         ICollection<Favorite> Favorites { get; set; }
 
         ICollection<Comment> Comments { get; set; }
+
+        ICollection<PostDenounce> Denounces { get; set; }
     }
 }

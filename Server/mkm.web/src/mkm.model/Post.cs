@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 namespace mkm.model
 {
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public class Post
     {
         public long Id { get; set; }
@@ -21,21 +23,30 @@ namespace mkm.model
 
         public bool? IsConfirmedDenounce { get; set; }
 
-        public int CantComments { get; set; }
+        public int CommentsCount { get; set; }
 
-        public int CantLikes { get; set; }
+        public int LikesCount { get; set; }
 
         public string Categories { get; set; }
 
-        public int CantLinks { get; set; }
+        public int LinksCount { get; set; }
 
-        public int CantShares { get; set; }
+        public int SharesCount { get; set; }
 
-        public long ApplicationUserId { get; set; }
+        public int ViewsCount { get; set; }
 
+        public long UserId { get; set; }
+
+        [ForeignKey("UserId")]
         public ApplicationUser Author { get; set; }
 
         ICollection<Comment> Comments { get; set; } 
+
+        ICollection<Like> Likes { get; set; }
+
+        ICollection<Favorite> Favorites { get; set; }
+
+        ICollection<PostDenounce> Denounces { get; set; }
 
     }
 }

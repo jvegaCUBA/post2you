@@ -6,6 +6,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace mkm.model
 {
+    using System.ComponentModel.DataAnnotations.Schema;
+
     using Microsoft.Data.Entity.Metadata.Internal;
 
     public class Comment
@@ -20,14 +22,17 @@ namespace mkm.model
 
         public long PostId { get; set; }
 
+        [ForeignKey("PostId")]
         public Post Post { get; set; }
 
-        public long ApplicationUserId { get; set; }
+        public long UserId { get; set; }
 
-        public ApplicationUser User { get; set; }
+        [ForeignKey("UserId")]
+        public ApplicationUser Author { get; set; }
 
         public long? ParentCommentId { get; set; }
 
+        [ForeignKey("ParentCommentId")]
         public Comment ParentComment { get; set; }
 
         public ICollection<Comment> SubComments { get; set; } 

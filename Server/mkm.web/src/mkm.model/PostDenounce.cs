@@ -7,16 +7,16 @@ namespace mkm.model
 {
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Like
+    public class PostDenounce
     {
+
         public long Id { get; set; }
 
         public TimeSpan Created { get; set; }
 
-        public string LikeType { get; set; }
+        public long UserId { get; set; }
 
-        public long ApplicationUserId { get; set; }
-
+        [ForeignKey("UserId")]
         public ApplicationUser User { get; set; }
 
         public long PostId { get; set; }
