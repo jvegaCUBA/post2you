@@ -111,7 +111,7 @@ namespace mkm.Migrations
                     b.HasKey("PostId");
                 });
 
-            modelBuilder.Entity("mkm.Models.ApplicationUser", b =>
+            modelBuilder.Entity("mkm.Models.User", b =>
                 {
                     b.Property<string>("Id");
 
@@ -168,14 +168,14 @@ namespace mkm.Migrations
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("mkm.Models.ApplicationUser")
+                    b.HasOne("mkm.Models.User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("mkm.Models.ApplicationUser")
+                    b.HasOne("mkm.Models.User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });
@@ -186,7 +186,7 @@ namespace mkm.Migrations
                         .WithMany()
                         .HasForeignKey("RoleId");
 
-                    b.HasOne("mkm.Models.ApplicationUser")
+                    b.HasOne("mkm.Models.User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });

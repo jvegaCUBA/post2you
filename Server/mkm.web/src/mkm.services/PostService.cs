@@ -20,7 +20,7 @@ namespace mkm.services
 
         public async Task<Post> FindByIdAsync(int id)
         {
-            return await _context.Posts.FirstOrDefaultAsync(item => item.PostId == id);
+            return await _context.Posts.FirstOrDefaultAsync(item => item.Id == id);
         }
 
         public async Task<List<Post>> GetAllPosts()

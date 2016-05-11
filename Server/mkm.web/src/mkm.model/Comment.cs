@@ -28,7 +28,7 @@ namespace mkm.model
         public long UserId { get; set; }
 
         [ForeignKey("UserId")]
-        public ApplicationUser Author { get; set; }
+        public User Author { get; set; }
 
         public long? ParentCommentId { get; set; }
 

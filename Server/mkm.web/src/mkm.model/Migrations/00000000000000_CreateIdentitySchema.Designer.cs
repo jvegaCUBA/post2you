@@ -99,7 +99,7 @@ namespace mkm.Migrations
                     b.HasAnnotation("Relational:TableName", "AspNetUserRoles");
                 });
 
-            modelBuilder.Entity("mkm.web.Models.ApplicationUser", b =>
+            modelBuilder.Entity("mkm.web.Models.User", b =>
                 {
                     b.Property<string>("Id");
 
@@ -156,14 +156,14 @@ namespace mkm.Migrations
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("mkm.web.Models.ApplicationUser")
+                    b.HasOne("mkm.web.Models.User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("mkm.web.Models.ApplicationUser")
+                    b.HasOne("mkm.web.Models.User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });
@@ -174,7 +174,7 @@ namespace mkm.Migrations
                         .WithMany()
                         .HasForeignKey("RoleId");
 
-                    b.HasOne("mkm.web.Models.ApplicationUser")
+                    b.HasOne("mkm.web.Models.User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });

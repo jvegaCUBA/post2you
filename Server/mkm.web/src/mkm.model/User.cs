@@ -6,8 +6,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace mkm.model
 {
-    // Add profile data for application users by adding properties to the ApplicationUser class
-    public class ApplicationUser : IdentityUser
+    // Add profile data for application users by adding properties to the User class
+    public class User : IdentityUser
     {
         public string Name { get; set; }
 
@@ -30,5 +30,9 @@ namespace mkm.model
         ICollection<Comment> Comments { get; set; }
 
         ICollection<PostDenounce> Denounces { get; set; }
+
+        ICollection<User> Following { get; set; }
+
+        ICollection<User> Followers { get; set; }
     }
 }

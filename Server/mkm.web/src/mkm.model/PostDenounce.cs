@@ -17,7 +17,7 @@ namespace mkm.model
         public long UserId { get; set; }
 
         [ForeignKey("UserId")]
-        public ApplicationUser User { get; set; }
+        public User User { get; set; }
 
         public long PostId { get; set; }
 

@@ -9,7 +9,7 @@ using mkm.model;
 
 namespace mkm.model
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
 
         public DbSet<Post> Posts { get; set; }

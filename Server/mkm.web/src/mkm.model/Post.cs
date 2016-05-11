@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace mkm.model
 {
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     public class Post
@@ -15,9 +16,11 @@ namespace mkm.model
         
         public string Description { get; set; }
 
-        public TimeSpan Created { get; set; }
+        [Timestamp]
+        public byte[] Created { get; set; }
 
-        public TimeSpan Updated { get; set; }
+        [Timestamp]
+        public byte[] Updated { get; set; }
 
         public bool? IsDenounced { get; set; }
 
@@ -38,7 +41,7 @@ namespace mkm.model
         public long UserId { get; set; }
 
         [ForeignKey("UserId")]
-        public ApplicationUser Author { get; set; }
+        public User Author { get; set; }
 
         ICollection<Comment> Comments { get; set; } 
 
