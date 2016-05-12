@@ -6,6 +6,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace mkm.model
 {
+    using System.ComponentModel.DataAnnotations;
+
     // Add profile data for application users by adding properties to the User class
     public class User : IdentityUser
     {
@@ -17,22 +19,28 @@ namespace mkm.model
 
         public int FollowersCount { get; set; }
 
-        public int ActiveReservations { get; set; }
+        [Timestamp]
+        public byte[] Created { get; set; }
 
-        public int ReservationsCount { get; set; }
+        [Timestamp]
+        public byte[] Updated { get; set; }
 
-        ICollection<Post> Posts { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
 
-        ICollection<Like> Likes { get; set; }
+        public virtual ICollection<Like> Likes { get; set; }
 
-        ICollection<Favorite> Favorites { get; set; }
+        public virtual ICollection<Favorite> Favorites { get; set; }
 
-        ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
 
-        ICollection<PostDenounce> Denounces { get; set; }
+        public virtual ICollection<PostDenounce> Denounces { get; set; }
 
-        ICollection<User> Following { get; set; }
+        public virtual ICollection<Relation> Following { get; set; }
 
-        ICollection<User> Followers { get; set; }
+        public virtual ICollection<Relation> Followers { get; set; }
+
+        public virtual ICollection<Notification> Notifications { get; set; }
+
+        public virtual ICollection<SharedPost> SharedPosts { get; set; }
     }
 }

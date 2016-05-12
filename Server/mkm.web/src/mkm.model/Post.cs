@@ -10,6 +10,8 @@ namespace mkm.model
 
     public class Post
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
         public string Title { get; set; }
@@ -41,15 +43,19 @@ namespace mkm.model
         public long UserId { get; set; }
 
         [ForeignKey("UserId")]
-        public User Author { get; set; }
+        public virtual User Author { get; set; }
 
-        ICollection<Comment> Comments { get; set; } 
+        public virtual ICollection<Comment> Comments { get; set; }
 
-        ICollection<Like> Likes { get; set; }
+        public virtual ICollection<Like> Likes { get; set; }
 
-        ICollection<Favorite> Favorites { get; set; }
+        public virtual ICollection<Favorite> Favorites { get; set; }
 
-        ICollection<PostDenounce> Denounces { get; set; }
+        public virtual ICollection<PostDenounce> Denounces { get; set; }
+
+        public virtual ICollection<Resource> Resources { get; set; }
+
+        public virtual ICollection<SharedPost> Shares { get; set; }
 
     }
 }

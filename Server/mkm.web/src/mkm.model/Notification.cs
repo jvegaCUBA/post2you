@@ -8,13 +8,15 @@ namespace mkm.model
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Category
+    public class Notification
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
-        
+
         public string Text { get; set; }
+
+        public bool IsViewed { get; set; }
 
         [Timestamp]
         public byte[] Created { get; set; }
@@ -22,16 +24,9 @@ namespace mkm.model
         [Timestamp]
         public byte[] Updated { get; set; }
 
-        public long? UserId { get; set; }
+        public long UserId { get; set; }
 
         [ForeignKey("UserId")]
-        public User Author { get; set; }
-
-        public long? CategoryId { get; set; }
-
-        [ForeignKey("CategoryId")]
-        public Category ParentCategory { get; set; }
-
-        public virtual ICollection<Category> SubCategories { get; set; } 
+        public User User { get; set; }
     }
 }

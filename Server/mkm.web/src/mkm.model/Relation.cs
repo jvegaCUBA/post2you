@@ -10,6 +10,8 @@ namespace mkm.model
 
     public class Relation
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
         [Timestamp]
@@ -18,11 +20,11 @@ namespace mkm.model
         public long UserFollowId { get; set; }
 
         [ForeignKey("UserFollowId")]
-        public User UserFollow { get; set; }
+        public virtual User UserFollow { get; set; }
 
         public long UserFollowedId { get; set; }
 
         [ForeignKey("UserFollowedId")]
-        public User UserFollowed { get; set; }
+        public virtual User UserFollowed { get; set; }
     }
 }
