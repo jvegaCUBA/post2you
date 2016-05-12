@@ -1,7 +1,14 @@
 package com.example.angel.nideas;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.annotation.NonNull;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.ArrayMap;
@@ -11,11 +18,17 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.StringBufferInputStream;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.HashMap;
@@ -25,10 +38,32 @@ import java.util.Set;
 
 public class HomeActivity extends ActionBarActivity {
 
+    private Socket socket;
+    private static final int SERVERPORT = 3333;
+    private static final String SERVER_IP = "172.10.1.1";
+    private Handler mHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        //esto es para iniciar el socket
+        mHandler = new Handler(Looper.getMainLooper()) {
+            /*
+             * handleMessage() defines the operations to perform when
+             * the Handler receives a new Message to process.
+             */
+            @Override
+            public void handleMessage(Message inputMessage) {
+                // Gets the image task from the incoming Message object.
+                //PhotoTask photoTask = (PhotoTask) inputMessage.obj;
+            }
+        };
+        new Thread(new ClientThread()).start();
+
+
+
 
 //        getSupportActionBar().setDisplayUseLogoEnabled(true);
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -43,67 +78,7 @@ public class HomeActivity extends ActionBarActivity {
         webView.getSettings().setJavaScriptEnabled(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
             webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
-        //webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
-        String summary =
-                "<!DOCTYPE html>" +
-                "<html lang='en'>" +
-                    "<head>" +
-                        "<meta name='viewport' content='width=device-width, initial-scale=1'>" +
-                    "</head>"+
-                    "<body>"+
-                        "<link href='file:///android_asset/bootstrap/css/bootstrap.min.css' rel='stylesheet' />" +
-                        "<link href='file:///android_asset/bootstrap/css/bootstrap-theme.min.css' rel='stylesheet' />"+
-                        "<script src='file:///android_asset/jquery/jquery.js'></script>"+
-                        "<script src='file:///android_asset/bootstrap/js/bootstrap.min.js'></script>" +
-                        "<script>" +
-                            "function xxx(x){console.info(x)}" +
-                            "console.info('lololo');" +
-                            "$.ajax({" +
-                            "  crossDomain: true," +
-                            "  url: 'http://nideas.com/test'," +
-                            "  context: document.body" +
-                            "}).done(function(data) {" +
-                            "  $( this ).addClass( 'done' );" +
-                            "  console.info(data);" +
-                            "});" +
-                        "</script>"+
-                        "<div class='container'>" +
-                            "<div class='row'>" +
-                                "<article class='col-xs-5 col-xs-offset-1' style='background-color:#CCC; margin:10px; border: 1px solid black'>" +
-                                    "<header style='border-bottom: 1px solid black'>Title</header>" +
-                                    "<section>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </section>" +
-                                    "<footer style='border-top: 1px solid black; padding: 5px'>" +
-                                        "<span class='glyphicon glyphicon-heart'></span>" +
-                                        "<span class='glyphicon glyphicon-star'></span>" +
-                                        "<span class='glyphicon glyphicon-remove'></span>" +
-                                        "<span class='glyphicon glyphicon-eye-open'></span>" +
-                                    "</footer>" +
-                                "</article>" +
-                                "<article class='col-xs-5 col-xs-offset-1' style='background-color:#CCC; margin:10px; border: 1px solid black'>" +
-                                    "<header style='border-bottom: 1px solid black'>Title</header>" +
-                                    "<section>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </section>" +
-                                    "<footer style='border-top: 1px solid black; padding: 5px'>" +
-                                        "<span class='glyphicon glyphicon-heart'></span>" +
-                                        "<span class='glyphicon glyphicon-star'></span>" +
-                                        "<span class='glyphicon glyphicon-remove'></span>" +
-                                        "<span class='glyphicon glyphicon-eye-open'></span>" +
-                                    "</footer>" +
-                                "</article>" +
-                                "<article class='col-xs-5 col-xs-offset-1' style='background-color:#CCC; margin:10px; border: 1px solid black'>" +
-                                    "<header style='border-bottom: 1px solid black'>Title</header>" +
-                                    "<section>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </section>" +
-                                    "<footer style='border-top: 1px solid black; padding: 5px'>" +
-                                        "<span class='glyphicon glyphicon-heart'></span>" +
-                                        "<span class='glyphicon glyphicon-star'></span>" +
-                                        "<span class='glyphicon glyphicon-remove'></span>" +
-                                        "<span class='glyphicon glyphicon-eye-open'></span>" +
-                                    "</footer>" +
-                                "</article>" +
 
-                            "</div>"+
-                        "</div>"+
-                    "</body>" +
-                "</html>";
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
@@ -122,7 +97,9 @@ public class HomeActivity extends ActionBarActivity {
                 return super.shouldInterceptRequest(view, url);
             }
         });
-        webView.loadDataWithBaseURL("file:///android_asset/",summary, "text/html", null, null);
+
+        webView.loadUrl("file:///android_asset/home.html");
+        //webView.loadDataWithBaseURL("file:///android_asset/",summary, "text/html", null, null);
     }
 
     @Override
@@ -145,5 +122,61 @@ public class HomeActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    class ClientThread implements Runnable {
+        @Override
+        public void run() {
+            try {
+                InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
+                socket = new Socket(serverAddr, SERVERPORT);
+                while (true)
+                {
+                    BufferedReader r = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                    final StringBuilder total = new StringBuilder();
+                    String line;
+                    while ((line = r.readLine()) != null) {
+                        total.append(line).append('\n');
+                    }
+
+                    if(total.length() != 0)
+                    {
+                        mHandler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                //Toast.makeText(getBaseContext(), total.toString(), Toast.LENGTH_SHORT).show();
+                                NotificationCompat.Builder mBuilder =
+                                        new NotificationCompat.Builder(getBaseContext())
+                                                .setSmallIcon(R.drawable.icon)
+                                                .setContentTitle(total.toString())
+                                                .setContentText(total.toString());
+
+                                Intent resultIntent = new Intent(getBaseContext(), MainActivity.class);
+                                PendingIntent resultPendingIntent =
+                                        PendingIntent.getActivity(
+                                                getBaseContext(),
+                                                0,
+                                                resultIntent,
+                                                PendingIntent.FLAG_UPDATE_CURRENT
+                                        );
+
+                                mBuilder.setContentIntent(resultPendingIntent);
+
+                                // Sets an ID for the notification
+                                int mNotificationId = 001;
+                                // Gets an instance of the NotificationManager service
+                                NotificationManager mNotifyMgr =
+                                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                                // Builds the notification and issues it.
+                                mNotifyMgr.notify(mNotificationId, mBuilder.build());
+                            }
+                        });
+                    }
+
+                }
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
     }
 }
