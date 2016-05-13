@@ -17,14 +17,14 @@ namespace mkm.model
         [Timestamp]
         public byte[] Created { get; set; }
 
-        public long UserFollowId { get; set; }
-
-        [ForeignKey("UserFollowId")]
+        [ForeignKey("UserFollow")]
+        public string UserFollowId { get; set; }
+        
         public virtual User UserFollow { get; set; }
 
-        public long UserFollowedId { get; set; }
-
-        [ForeignKey("UserFollowedId")]
+        [ForeignKey("UserFollowed")]
+        public string UserFollowedId { get; set; }
+        
         public virtual User UserFollowed { get; set; }
     }
 }

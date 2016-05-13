@@ -13,33 +13,56 @@ namespace mkm.model
     {
 
         public DbSet<Post> Posts { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<CategoryPost> CategoryPosts { get; set; }
+        //public DbSet<Category> Categories { get; set; }
+        //public DbSet<CategoryPost> CategoryPosts { get; set; }
         public DbSet<Favorite> Favorities { get; set; }
         public DbSet<Like> Likes { get; set; }
-        public DbSet<Notification> Notifications { get; set; }
+        //public DbSet<Notification> Notifications { get; set; }
         public DbSet<PostDenounce> PostDenounces { get; set; }
         public DbSet<Relation> Relations { get; set; }
-        public DbSet<SharedPost> SharedPost { get; set; }
+        //public DbSet<SharedPost> SharedPost { get; set; }
         public DbSet<Comment> Comments { get; set; }
-        public DbSet<User> Users { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            // create post entity
-            builder.Entity<User>(m => m.HasBaseType<IdentityUser>());
-            builder.Entity<Post>();
-            builder.Entity<Comment>();
-            builder.Entity<Category>();
-            builder.Entity<CategoryPost>();
+            // User builder
+            var userBuilder = builder.Entity<User>();
+            userBuilder.HasBaseType<IdentityUser>();
+            userBuilder.HasMany(user => user.Following).WithOne(relation => relation.UserFollow);
+            userBuilder.HasMany(user => user.Followers).WithOne(relation => relation.UserFollowed);
+            userBuilder.HasMany(user => user.Comments).WithOne(comment => comment.Author);
+            userBuilder.HasMany(user => user.Likes).WithOne(like => like.User);
+            userBuilder.HasMany(user => user.Favorites).WithOne(favorite => favorite.User);
+            userBuilder.HasMany(user => user.Denounces).WithOne(denounce => denounce.User);
+            userBuilder.HasMany(user => user.SharedPosts).WithOne(shared => shared.User);
+
+            // Relation builder
+            var relationEntity = builder.Entity<Relation>();
+            //relationEntity.HasOne(m => m.UserFollow).WithMany(m => m.Following);
+            //relationEntity.HasOne(m => m.UserFollowed).WithMany(m => m.Followers);
+
+            var postBuilder = builder.Entity<Post>();
+            postBuilder.Property(post => post.RowVersion).IsConcurrencyToken();
+            postBuilder.Property(post => post.Created).HasDefaultValue(DateTime.UtcNow);
+
+            var commentBuilder = builder.Entity<Comment>();
+            commentBuilder.Property(entity => entity.RowVersion).IsConcurrencyToken();
+            commentBuilder.HasOne(comment => comment.ParentComment).WithMany(comment => comment.SubComments);
+            //builder.Entity<Category>();
+            //builder.Entity<CategoryPost>();
             builder.Entity<SharedPost>();
             builder.Entity<PostDenounce>();
-            builder.Entity<Notification>();
-            builder.Entity<Like>();
-            builder.Entity<Favorite>();
-            builder.Entity<Relation>();
+            //builder.Entity<Notification>();
+
+            var likeBuilder = builder.Entity<Like>();
+            likeBuilder.Property(entity => entity.RowVersion).IsConcurrencyToken();
+
+            var fovoriteBuilder = builder.Entity<Favorite>();
+            fovoriteBuilder.Property(entity => entity.RowVersion).IsConcurrencyToken();
+
 
         }
     }

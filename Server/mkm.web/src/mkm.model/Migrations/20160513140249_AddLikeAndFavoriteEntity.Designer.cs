@@ -8,9 +8,10 @@ using mkm.model;
 namespace mkm.model.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160513140249_AddLikeAndFavoriteEntity")]
+    partial class AddLikeAndFavoriteEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -223,7 +224,7 @@ namespace mkm.model.Migrations
                     b.Property<int>("CommentsCount");
 
                     b.Property<DateTime>("Created")
-                        .HasAnnotation("Relational:DefaultValue", "635987456736188371")
+                        .HasAnnotation("Relational:DefaultValue", "635987449691735064")
                         .HasAnnotation("Relational:DefaultValueType", "System.DateTime");
 
                     b.Property<string>("Description")
@@ -253,26 +254,6 @@ namespace mkm.model.Migrations
                     b.HasKey("Id");
                 });
 
-            modelBuilder.Entity("mkm.model.PostDenounce", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Comment");
-
-                    b.Property<DateTime>("Created");
-
-                    b.Property<long>("PostId");
-
-                    b.Property<byte[]>("RowVersion")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate();
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("Id");
-                });
-
             modelBuilder.Entity("mkm.model.Relation", b =>
                 {
                     b.Property<long>("Id")
@@ -285,26 +266,6 @@ namespace mkm.model.Migrations
                     b.Property<string>("UserFollowId");
 
                     b.Property<string>("UserFollowedId");
-
-                    b.HasKey("Id");
-                });
-
-            modelBuilder.Entity("mkm.model.SharedPost", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("Created");
-
-                    b.Property<long>("PostId");
-
-                    b.Property<byte[]>("RowVersion")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate();
-
-                    b.Property<string>("SocialNetwork");
-
-                    b.Property<string>("UserId");
 
                     b.HasKey("Id");
                 });
@@ -404,17 +365,6 @@ namespace mkm.model.Migrations
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("mkm.model.PostDenounce", b =>
-                {
-                    b.HasOne("mkm.model.Post")
-                        .WithMany()
-                        .HasForeignKey("PostId");
-
-                    b.HasOne("mkm.model.User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
             modelBuilder.Entity("mkm.model.Relation", b =>
                 {
                     b.HasOne("mkm.model.User")
@@ -424,17 +374,6 @@ namespace mkm.model.Migrations
                     b.HasOne("mkm.model.User")
                         .WithMany()
                         .HasForeignKey("UserFollowedId");
-                });
-
-            modelBuilder.Entity("mkm.model.SharedPost", b =>
-                {
-                    b.HasOne("mkm.model.Post")
-                        .WithMany()
-                        .HasForeignKey("PostId");
-
-                    b.HasOne("mkm.model.User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
         }
     }

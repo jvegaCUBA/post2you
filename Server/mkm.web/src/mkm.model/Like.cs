@@ -16,20 +16,19 @@ namespace mkm.model
 
         public string LikeType { get; set; }
 
-        [Timestamp]
-        public byte[] Created { get; set; }
+        public DateTime Created { get; set; }
 
         [Timestamp]
-        public byte[] Updated { get; set; }
+        public byte[] RowVersion { get; set; }
 
-        public long UserId { get; set; }
-
-        [ForeignKey("UserId")]
+        [ForeignKey("User")]
+        public string UserId { get; set; }
+        
         public User User { get; set; }
 
+        [ForeignKey("Post")]
         public long PostId { get; set; }
-
-        [ForeignKey("PostId")]
+        
         public Post Post { get; set; }
     }
 }

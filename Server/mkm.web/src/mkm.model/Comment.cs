@@ -20,25 +20,24 @@ namespace mkm.model
 
         public string Emoticons { get; set; }
 
-        [Timestamp]
-        public byte[] Created { get; set; }
+        public DateTime Created { get; set; }
 
         [Timestamp]
-        public byte[] Updated { get; set; }
+        public byte[] RowVersion { get; set; }
 
+        [ForeignKey("Post")]
         public long PostId { get; set; }
-
-        [ForeignKey("PostId")]
+        
         public Post Post { get; set; }
 
-        public long UserId { get; set; }
+        [ForeignKey("Author")]
+        public string UserId { get; set; }
 
-        [ForeignKey("UserId")]
-        public User Author { get; set; }
+        public virtual User Author { get; set; }
 
+        [ForeignKey("ParentComment")]
         public long? ParentCommentId { get; set; }
-
-        [ForeignKey("ParentCommentId")]
+        
         public Comment ParentComment { get; set; }
 
         public virtual ICollection<Comment> SubComments { get; set; } 

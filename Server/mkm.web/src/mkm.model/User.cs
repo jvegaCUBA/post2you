@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace mkm.model
 {
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
     // Add profile data for application users by adding properties to the User class
@@ -15,15 +16,13 @@ namespace mkm.model
 
         public string LastName { get; set; }
 
+        [DefaultValue(0)]
         public int FollowsCount { get; set; }
 
+        [DefaultValue(0)]
         public int FollowersCount { get; set; }
-
-        [Timestamp]
-        public byte[] Created { get; set; }
-
-        [Timestamp]
-        public byte[] Updated { get; set; }
+        
+        public DateTime Created { get; set; }
 
         public virtual ICollection<Post> Posts { get; set; }
 
@@ -39,7 +38,7 @@ namespace mkm.model
 
         public virtual ICollection<Relation> Followers { get; set; }
 
-        public virtual ICollection<Notification> Notifications { get; set; }
+        //public virtual ICollection<Notification> Notifications { get; set; }
 
         public virtual ICollection<SharedPost> SharedPosts { get; set; }
     }
