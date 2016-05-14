@@ -8,9 +8,10 @@ using mkm.model;
 namespace mkm.model.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160514163424_FixErrorWithCategoryInPostEntity")]
+    partial class FixErrorWithCategoryInPostEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -213,26 +214,6 @@ namespace mkm.model.Migrations
                     b.HasKey("Id");
                 });
 
-            modelBuilder.Entity("mkm.model.Cupon", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Code");
-
-                    b.Property<DateTime>("Created");
-
-                    b.Property<bool>("InUse");
-
-                    b.Property<long>("OfertId");
-
-                    b.Property<byte[]>("RowVersion")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate();
-
-                    b.HasKey("Id");
-                });
-
             modelBuilder.Entity("mkm.model.Favorite", b =>
                 {
                     b.Property<long>("Id")
@@ -297,6 +278,8 @@ namespace mkm.model.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Categories");
+
+                    b.Property<string>("ClientId");
 
                     b.Property<int>("CommentsCount");
 
@@ -370,34 +353,6 @@ namespace mkm.model.Migrations
                     b.Property<string>("UserFollowId");
 
                     b.Property<string>("UserFollowedId");
-
-                    b.HasKey("Id");
-                });
-
-            modelBuilder.Entity("mkm.model.Reservation", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("CancelationDate");
-
-                    b.Property<string>("ClientId");
-
-                    b.Property<string>("Code");
-
-                    b.Property<DateTime>("Created");
-
-                    b.Property<long>("CuponId");
-
-                    b.Property<bool>("IsActive");
-
-                    b.Property<bool>("IsCanceled");
-
-                    b.Property<byte[]>("RowVersion")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate();
-
-                    b.Property<string>("Status");
 
                     b.HasKey("Id");
                 });
@@ -563,13 +518,6 @@ namespace mkm.model.Migrations
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("mkm.model.Cupon", b =>
-                {
-                    b.HasOne("mkm.model.Ofert")
-                        .WithMany()
-                        .HasForeignKey("OfertId");
-                });
-
             modelBuilder.Entity("mkm.model.Favorite", b =>
                 {
                     b.HasOne("mkm.model.Post")
@@ -603,6 +551,10 @@ namespace mkm.model.Migrations
                 {
                     b.HasOne("mkm.model.Client")
                         .WithMany()
+                        .HasForeignKey("ClientId");
+
+                    b.HasOne("mkm.model.User")
+                        .WithMany()
                         .HasForeignKey("UserId");
                 });
 
@@ -626,17 +578,6 @@ namespace mkm.model.Migrations
                     b.HasOne("mkm.model.User")
                         .WithMany()
                         .HasForeignKey("UserFollowedId");
-                });
-
-            modelBuilder.Entity("mkm.model.Reservation", b =>
-                {
-                    b.HasOne("mkm.model.Client")
-                        .WithMany()
-                        .HasForeignKey("ClientId");
-
-                    b.HasOne("mkm.model.Cupon")
-                        .WithOne()
-                        .HasForeignKey("mkm.model.Reservation", "CuponId");
                 });
 
             modelBuilder.Entity("mkm.model.SharedPost", b =>

@@ -14,20 +14,21 @@ namespace mkm.model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
-        [Timestamp]
-        public byte[] Created { get; set; }
+        public DateTime Created { get; set; }
 
         [Timestamp]
-        public byte[] Updated { get; set; }
+        public byte[] RowVersion { get; set; }
 
+        [Required]
+        [ForeignKey("Post")]
         public long PostId { get; set; }
 
-        [ForeignKey("PostId")]
         public Post Post { get; set; }
 
+        [Required]
+        [ForeignKey("Category")]
         public long CategoryId { get; set; }
 
-        [ForeignKey("CategoryId")]
         public Category Category { get; set; }
     }
 }

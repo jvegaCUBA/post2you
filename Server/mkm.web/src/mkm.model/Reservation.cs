@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 namespace mkm.model
 {
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class Reservation
     {
@@ -13,11 +14,10 @@ namespace mkm.model
 
         public string Code { get; set; }
 
-        [Timestamp]
-        public byte[] Created { get; set; }
+        public DateTime Created { get; set; }
 
         [Timestamp]
-        public byte[] Updated { get; set; }
+        public byte[] RowVersion { get; set; }
 
         public bool IsActive { get; set; }
 
@@ -27,10 +27,12 @@ namespace mkm.model
 
         public string Status { get; set; }
 
-        public long ClientId { get; set; }
+        [ForeignKey("Client")]
+        public string ClientId { get; set; }
 
         public virtual Client Client { get; set; }
 
+        [ForeignKey("Cupon")]
         public long CuponId { get; set; }
 
         public virtual Cupon Cupon { get; set; }

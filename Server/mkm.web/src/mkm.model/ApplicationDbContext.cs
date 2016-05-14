@@ -13,14 +13,14 @@ namespace mkm.model
     {
 
         public DbSet<Post> Posts { get; set; }
-        //public DbSet<Category> Categories { get; set; }
-        //public DbSet<CategoryPost> CategoryPosts { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<CategoryPost> CategoryPosts { get; set; }
         public DbSet<Favorite> Favorities { get; set; }
         public DbSet<Like> Likes { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<PostDenounce> PostDenounces { get; set; }
         public DbSet<Relation> Relations { get; set; }
-        //public DbSet<SharedPost> SharedPost { get; set; }
+        public DbSet<SharedPost> SharedPost { get; set; }
         public DbSet<Comment> Comments { get; set; }
         
 
@@ -41,6 +41,15 @@ namespace mkm.model
             userBuilder.HasMany(user => user.Notifications).WithOne(notif => notif.User);
             userBuilder.HasMany(user => user.Categories).WithOne(category => category.Author);
 
+            var businessBuilder = builder.Entity<Business>();
+            businessBuilder.HasBaseType<User>();
+            businessBuilder.HasMany(business => business.Oferts).WithOne(post => (Business)post.Author);
+
+            var clientBuilder = builder.Entity<Client>();
+            clientBuilder.HasBaseType<User>();
+            clientBuilder.HasMany(client => client.Posts).WithOne(post => (Client)post.Author);
+            clientBuilder.HasMany(client => client.Reservations).WithOne(reserv => reserv.Client);
+
             // Relation builder
             var relationEntity = builder.Entity<Relation>();
             //relationEntity.HasOne(m => m.UserFollow).WithMany(m => m.Following);
@@ -48,7 +57,11 @@ namespace mkm.model
 
             var postBuilder = builder.Entity<Post>();
             postBuilder.Property(post => post.RowVersion).IsConcurrencyToken();
-            postBuilder.Property(post => post.Created).HasDefaultValue(DateTime.UtcNow);
+            postBuilder.HasMany(post => post.CategoriesCollection).WithOne(postCat => postCat.Post);
+
+            var ofertBuilder = builder.Entity<Ofert>();
+            ofertBuilder.HasBaseType<Post>();
+            ofertBuilder.HasMany(ofert => ofert.Cupons).WithOne(cupon => cupon.Ofert);
 
             var commentBuilder = builder.Entity<Comment>();
             commentBuilder.Property(entity => entity.RowVersion).IsConcurrencyToken();
@@ -57,7 +70,8 @@ namespace mkm.model
             var categoryBuilder = builder.Entity<Category>();
             categoryBuilder.HasMany(category => category.SubCategories).WithOne(cat => cat.ParentCategory);
 
-            //builder.Entity<CategoryPost>();
+            var categoryPost = builder.Entity<CategoryPost>();
+
             builder.Entity<SharedPost>();
 
             builder.Entity<PostDenounce>();

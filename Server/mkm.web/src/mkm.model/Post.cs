@@ -65,5 +65,7 @@ namespace mkm.model
 
         public virtual ICollection<SharedPost> Shares { get; set; }
 
+        public virtual ICollection<CategoryPost> CategoriesCollection { get; set; }
+
     }
 }

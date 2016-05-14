@@ -11,6 +11,8 @@ namespace mkm.model
 
         public int ReservationsCount { get; set; }
 
+        public virtual ICollection<Post> Posts { get; set; }
+
         public virtual ICollection<Reservation> Reservations { get; set; } 
     }
 }

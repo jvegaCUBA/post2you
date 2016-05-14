@@ -24,8 +24,6 @@ namespace mkm.model
         
         public DateTime Created { get; set; }
 
-        public virtual ICollection<Post> Posts { get; set; }
-
         public virtual ICollection<Like> Likes { get; set; }
 
         public virtual ICollection<Favorite> Favorites { get; set; }
