@@ -61,7 +61,7 @@ namespace mkm.model
 
         public virtual ICollection<PostDenounce> Denounces { get; set; }
 
-        //public virtual ICollection<Resource> Resources { get; set; }
+        public virtual ICollection<Resource> Resources { get; set; }
 
         public virtual ICollection<SharedPost> Shares { get; set; }
 

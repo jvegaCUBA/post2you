@@ -22,7 +22,9 @@ namespace mkm.model
         public DbSet<Relation> Relations { get; set; }
         public DbSet<SharedPost> SharedPost { get; set; }
         public DbSet<Comment> Comments { get; set; }
-        
+        public DbSet<Cupon> Cupons { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Resource> Resources { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -52,12 +54,11 @@ namespace mkm.model
 
             // Relation builder
             var relationEntity = builder.Entity<Relation>();
-            //relationEntity.HasOne(m => m.UserFollow).WithMany(m => m.Following);
-            //relationEntity.HasOne(m => m.UserFollowed).WithMany(m => m.Followers);
-
+            
             var postBuilder = builder.Entity<Post>();
             postBuilder.Property(post => post.RowVersion).IsConcurrencyToken();
             postBuilder.HasMany(post => post.CategoriesCollection).WithOne(postCat => postCat.Post);
+            postBuilder.HasMany(post => post.Resources).WithOne(resource => resource.Post);
 
             var ofertBuilder = builder.Entity<Ofert>();
             ofertBuilder.HasBaseType<Post>();
