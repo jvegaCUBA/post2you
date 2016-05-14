@@ -26,7 +26,7 @@ namespace mkm.model
 
         public virtual ICollection<Like> Likes { get; set; }
 
-        public virtual ICollection<Favorite> Favorites { get; set; }
+        public virtual IList<Favorite> Favorites { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
 

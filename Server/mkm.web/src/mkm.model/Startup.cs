@@ -37,6 +37,7 @@ namespace mkm.model
         }
         public void Configure(IApplicationBuilder app)
         {
+            
         }
     }
 }
