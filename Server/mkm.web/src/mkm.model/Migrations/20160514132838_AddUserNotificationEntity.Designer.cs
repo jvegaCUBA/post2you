@@ -8,9 +8,10 @@ using mkm.model;
 namespace mkm.model.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160514132838_AddUserNotificationEntity")]
+    partial class AddUserNotificationEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -151,26 +152,6 @@ namespace mkm.model.Migrations
                     b.HasAnnotation("Relational:TableName", "AspNetUserRoles");
                 });
 
-            modelBuilder.Entity("mkm.model.Category", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<long?>("CategoryId");
-
-                    b.Property<DateTime>("Created");
-
-                    b.Property<byte[]>("RowVersion")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate();
-
-                    b.Property<string>("Text");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("Id");
-                });
-
             modelBuilder.Entity("mkm.model.Comment", b =>
                 {
                     b.Property<long>("Id")
@@ -263,7 +244,7 @@ namespace mkm.model.Migrations
                     b.Property<int>("CommentsCount");
 
                     b.Property<DateTime>("Created")
-                        .HasAnnotation("Relational:DefaultValue", "635988374919957387")
+                        .HasAnnotation("Relational:DefaultValue", "635988293185121783")
                         .HasAnnotation("Relational:DefaultValueType", "System.DateTime");
 
                     b.Property<string>("Description")
@@ -400,17 +381,6 @@ namespace mkm.model.Migrations
                     b.HasOne("Microsoft.AspNet.Identity.EntityFramework.IdentityRole")
                         .WithMany()
                         .HasForeignKey("RoleId");
-                });
-
-            modelBuilder.Entity("mkm.model.Category", b =>
-                {
-                    b.HasOne("mkm.model.Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId");
-
-                    b.HasOne("mkm.model.User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("mkm.model.Comment", b =>

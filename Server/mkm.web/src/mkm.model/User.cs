@@ -38,8 +38,10 @@ namespace mkm.model
 
         public virtual ICollection<Relation> Followers { get; set; }
 
-        //public virtual ICollection<Notification> Notifications { get; set; }
+        public virtual ICollection<Notification> Notifications { get; set; }
 
         public virtual ICollection<SharedPost> SharedPosts { get; set; }
+
+        public virtual ICollection<Category> Categories { get; set; } 
     }
 }

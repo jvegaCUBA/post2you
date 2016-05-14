@@ -17,7 +17,7 @@ namespace mkm.model
         //public DbSet<CategoryPost> CategoryPosts { get; set; }
         public DbSet<Favorite> Favorities { get; set; }
         public DbSet<Like> Likes { get; set; }
-        //public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
         public DbSet<PostDenounce> PostDenounces { get; set; }
         public DbSet<Relation> Relations { get; set; }
         //public DbSet<SharedPost> SharedPost { get; set; }
@@ -38,6 +38,8 @@ namespace mkm.model
             userBuilder.HasMany(user => user.Favorites).WithOne(favorite => favorite.User);
             userBuilder.HasMany(user => user.Denounces).WithOne(denounce => denounce.User);
             userBuilder.HasMany(user => user.SharedPosts).WithOne(shared => shared.User);
+            userBuilder.HasMany(user => user.Notifications).WithOne(notif => notif.User);
+            userBuilder.HasMany(user => user.Categories).WithOne(category => category.Author);
 
             // Relation builder
             var relationEntity = builder.Entity<Relation>();
@@ -51,15 +53,22 @@ namespace mkm.model
             var commentBuilder = builder.Entity<Comment>();
             commentBuilder.Property(entity => entity.RowVersion).IsConcurrencyToken();
             commentBuilder.HasOne(comment => comment.ParentComment).WithMany(comment => comment.SubComments);
-            //builder.Entity<Category>();
+
+            var categoryBuilder = builder.Entity<Category>();
+            categoryBuilder.HasMany(category => category.SubCategories).WithOne(cat => cat.ParentCategory);
+
             //builder.Entity<CategoryPost>();
             builder.Entity<SharedPost>();
-            builder.Entity<PostDenounce>();
-            //builder.Entity<Notification>();
 
+            builder.Entity<PostDenounce>();
+
+            builder.Entity<Notification>();
+
+            // Like builder
             var likeBuilder = builder.Entity<Like>();
             likeBuilder.Property(entity => entity.RowVersion).IsConcurrencyToken();
 
+            //Favorite builder
             var fovoriteBuilder = builder.Entity<Favorite>();
             fovoriteBuilder.Property(entity => entity.RowVersion).IsConcurrencyToken();
 

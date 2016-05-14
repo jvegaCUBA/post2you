@@ -14,8 +14,10 @@ namespace mkm.model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
+        public DateTime Created { get; set; }
+
         [Timestamp]
-        public byte[] Created { get; set; }
+        public byte[] RowVersion { get; set; }
 
         [ForeignKey("UserFollow")]
         public string UserFollowId { get; set; }
