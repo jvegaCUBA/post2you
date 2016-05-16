@@ -56,13 +56,30 @@
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        Task<bool> AddUserFollow(string userFollow, string userFollowed);
+        Task<object> AddUserFollow(string userFollow, string userFollowed);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        Task<User> FindUser(string userId);
+        Task<User> FindUserById(string userId);
+
+        /// <summary>
+        /// Verify if anyone has the same user name or email
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        Task<object> FindUser(string userName, string email);
+
+        /// <summary>
+        /// Return user profile data
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="userName"></param>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        Task<object> GetUserProfileData(string userId, string userName, string email);
     }
 }

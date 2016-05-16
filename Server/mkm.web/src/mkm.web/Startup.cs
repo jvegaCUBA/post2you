@@ -100,6 +100,9 @@ namespace mkm.web
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(
+                   name: "defaultApi",
+                   template: "api/{controller}/{action}/{id?}");
             });
         }
 

@@ -1,4 +1,4 @@
-﻿{
+{
     "authors": [ "Lxxx" ],
     "description": "NetKnowledge.Models",
     "frameworks": {
@@ -14,9 +14,9 @@
         "dnxcore50": { }
     },
     "licenseUrl": "",
-    "dependencies": {
-        "mkm.model": "1.0.0-*"
-    },
+  "dependencies": {
+    "mkm.model": "1.0.0-*"
+  },
     "projectUrl": "",
     "tags": [ "" ],
     "version": "1.0.0-*"

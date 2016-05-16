@@ -31,6 +31,8 @@ namespace mkm.model
 
         public bool? IsConfirmedDenounce { get; set; }
 
+        public bool? IsDeleted { get; set; }
+
         [DefaultValue(0)]
         public int CommentsCount { get; set; }
 
@@ -47,6 +49,9 @@ namespace mkm.model
 
         [DefaultValue(0)]
         public int ViewsCount { get; set; }
+
+        [DefaultValue(0)]
+        public int FavoritesCount { get; set; }
 
         [ForeignKey("Author")]
         public string UserId { get; set; }

@@ -8,9 +8,10 @@ using mkm.model;
 namespace mkm.model.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160516115752_AddingSharesCountToPost")]
+    partial class AddingSharesCountToPost
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -311,8 +312,6 @@ namespace mkm.model.Migrations
                     b.Property<int>("FavoritesCount");
 
                     b.Property<bool?>("IsConfirmedDenounce");
-
-                    b.Property<bool?>("IsDeleted");
 
                     b.Property<bool?>("IsDenounced");
 

@@ -8,13 +8,14 @@ using mkm.model;
 
 namespace mkm.web.Controllers
 {
+    using System.Security.Principal;
+
     using mkm.Services;
 
     using Microsoft.AspNet.Authorization;
 
-    [Produces("application/json")]
+    //[Produces("application/json")]
     [Route("api/user")]
-    [Authorize]
     public class UserController : Controller
     {
         private readonly IUserService _userService;
@@ -24,12 +25,13 @@ namespace mkm.web.Controllers
             _userService = userService;
         }
 
-        [HttpGet("{id}",Name = "favorites")]
-        public async Task<IActionResult> GetFavorites([FromForm]string id)
+        [HttpGet()]
+        public async Task<IActionResult> GetFavorites()
         {
-            var favoriteList = await this._userService.GetUserFavorites(id);
-            return this.Json(favoriteList);
-        } 
+            
+            //var favoriteList = await this._userService.GetUserFavorites("1");
+            return this.Json(true);
+        }
         
     }
 }
