@@ -56,6 +56,7 @@ namespace mkm.web
             services.AddTransient<ISmsSender, AuthMessageSender>();
             services.AddTransient<IPostService, PostService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IPublicationService, PublicationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
