@@ -1,0 +1,31 @@
+{
+  "name": "SPA",
+  "description": "SPA for nideas project",
+  "main": "",
+  "authors": [
+    "Daniel Velazquez"
+  ],
+  "license": "",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-local-storage": "^0.2.7",
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.5",
+    "angular-route": "^1.5.5",
+    "jquery": "^2.2.3",
+    "angular-animate": "^1.5.5",
+    "angular-gridify": "^0.1.1",
+    "angular-masonry": "^0.16.0"
+  },
+  "resolutions": {
+    "jquery": "~2.1.0"
+  }
+}

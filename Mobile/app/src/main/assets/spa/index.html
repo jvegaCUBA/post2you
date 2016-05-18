@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>nideas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Bower Components -->
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <!--Site CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    </head>
+    <body ng-app="nideasApp">
+
+        <div ng-view=""></div>
+
+        <!--Bower Components -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+        
+        <script src="assets/vendors/gridify/gridify-min.js"></script>
+
+        <!-- Angular App -->
+        <script src="app/app.js"></script>
+        <script src="app/services/authService.js"></script>
+        <script src="app/services/gridService.js"></script>
+        <script src="app/controllers/loginController.js"></script>
+        <script src="app/controllers/singupController.js"></script>
+        <script src="app/controllers/recoveryPasswordController.js"></script>
+        <script src="app/controllers/homeController.js"></script>  
+
+    </body>
+</html>

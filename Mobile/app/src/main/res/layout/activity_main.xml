@@ -11,14 +11,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Bienvenido"
+        android:text="Welcome"
         android:id="@+id/textView" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:hint="Uusario" />
+        android:hint="Uusario"
+        android:text="User" />
 
     <EditText
         android:layout_width="match_parent"
@@ -28,11 +29,28 @@
         android:hint="Password"
         android:inputType="textPassword" />
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remember me"
+        android:id="@+id/checkBox"
+        android:layout_gravity="center_horizontal"
+        android:checked="true" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Entrar"
+        android:text="Sing in"
         android:id="@+id/button"
         android:layout_gravity="center_horizontal"
         android:onClick="onEntrarClick" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sing up"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onSingUpClick" />
+
 </LinearLayout>

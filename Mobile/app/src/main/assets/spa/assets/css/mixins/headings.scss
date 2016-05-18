@@ -1,0 +1,5 @@
+@mixin heading-line($margin) {
+    &.heading-line:before {
+        margin-top: $margin;
+    }
+}

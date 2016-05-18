@@ -1,0 +1,111 @@
+//COLORS
+//------------------------------------------------------------------------------
+
+//backgrounds
+$bg-color1:                      #92D8E0;
+$bg-color2:                      #61C6D2;
+$bg-color3:                      #212A3B;
+$bg-color4:                      #F5F4F1;
+$bg-color5:                      #EAE9E7;
+$bg-color6:                      #DDDCDB;
+
+//text
+$text-color:                     #1A1A1A;           //black
+$text-color2:                    #87A9AB;           //blue-gray
+$text-color3:                    #346C72;           //dark blue-gray
+$text-color4:                    #FFFFFF;           //white
+$text-color5:                    #AF1F24;           //dark red
+$text-color7:                    #212A3B;           //dark blue
+
+//icons
+$icon-color1:                    #469099;           //sky blue
+$icon-color2:                    #32666D;           //dark blue
+
+//buttons
+$btn-primary-color:              #FFFFFF;           //white
+$btn-primary-bg:                 #EC2028;           //red
+$btn-primary-border:             $text-color5;       
+$btn-default-color:              #FFFFFF;           //white
+$btn-default-bg:                 #F48829;           //orange
+$btn-default-border:             #B45C19;           //dark orange
+
+//simple select
+$select-color:                   $text-color;
+$select-bg-active:               $bg-color4;
+
+//breadcrumb
+$breadcrumb-item-color:          $text-color2;
+$breadcrumb-active-color:        $text-color3;
+
+//headings
+$headings-color:                 $text-color;
+
+//links
+$principal-menu-links-color:     $text-color7;
+$text-link-color:                $text-color7;
+
+//pagination
+$pagination-color:               $text-color;
+$pagination-active-color:        $text-color5;
+$pagination-line-bg:             #E0DFDC;
+
+//media
+$media-border:                   #E0DFDC;
+$media-link:                     #40858D;
+$media-link-hover:               $text-color5;
+
+//tags
+$tags-bg-color1:                 #D3EFF3;
+$tags-bg-color2:                 #FDEBCE;
+$tags-bg-color3:                 #FBD2D3;
+
+//forms
+$form-bg:                        #EEEDEA; 
+
+//up
+$up-color:                       $text-color7;
+$up-color-hover:                 $text-color5;   
+
+//list links
+$list-links-color:               $text-color;
+$list-links-color-hover:         $text-color5;
+
+//FONTS FAMILY
+//------------------------------------------------------------------------------
+
+//fonts
+$font1:                          'Francois One', sans-serif;
+$font2:                          'Titillium Web', sans-serif;
+
+//body
+$body-font:                      $font2;
+
+//buttons
+$btn-font:                       $font1;
+
+//dropdowns
+$dropdowns-font:                 $font2;
+
+//headings
+$headings-font:                  $font1;
+
+//principal menu links
+$principal-menu-links-font:      $font1;
+
+//FONTS SIZE
+//------------------------------------------------------------------------------
+
+$h1-size:                        26px;
+$h2-size:                        26px;
+$h3-size:                        24px;
+$h4-size:                        18px;
+$h5-size:                        16px;
+$h6-size:                        14px;
+$body-size:                      15px;
+
+//MODULES
+//------------------------------------------------------------------------------
+
+//dropdown caret
+$caret-width:                    3px;
+$caret-height:                   5px;

@@ -48,4 +48,9 @@ public class MainActivity extends ActionBarActivity {
         startActivity(intent);
         finish();
     }
+
+    public void onSingUpClick(View view){
+        Intent intent = new Intent(MainActivity.this, SingUpActivity.class);
+        startActivity(intent);
+    }
 }

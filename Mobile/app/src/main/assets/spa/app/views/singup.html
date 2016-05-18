@@ -1,0 +1,33 @@
+<br>
+<p class="text-center"><img src="assets/images/logo.png" width="200"></p>
+<br>
+<div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+    <article class="panel panel-default">
+        <section class="panel-body">
+            <h3 class="text-center">Regístrate en la red #1 de ideas y ofertas</h3><br>
+            <form name="sigupForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Nombre" class="form-control" ng-model="name" required="">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Email" class="form-control" ng-model="email" required="">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="País" class="form-control" ng-model="country" required="">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Ciudad" class="form-control" ng-model="city" required="">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Fecha de nacimiento" class="form-control" ng-model="date" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Contraseña" class="form-control" ng-model="password" required="">
+                </div>
+                <button class="btn btn-primary btn-block" ng-disabled="sigupForm.$invalid">Crear cuenta</button>
+                <hr>
+                <a href="#/login" class="text-center btn btn-primary btn-block">¿Ya tienes cuenta? Inicia Sesión</a>
+            </form>
+        </section>
+    </article>
+</div>

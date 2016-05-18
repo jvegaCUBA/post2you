@@ -1,0 +1,36 @@
+<nav ng-include="'app/views/includes/topbar.html'" class="navbar navbar-default navbar-fixed-top"></nav>
+
+<section class="ideas-board">
+    <br><br><br><br>
+    <div class="container">
+        <h1 class="heading-line"><span>IDEAS TOP Y OFERTAS</span></h1>
+        <br><br>
+        <ul class="list-unstyled" id="grid">
+            <li ng-repeat="idea in ideas" class="item">
+                <article class="panel panel-default">
+                    <header class="panel-heading">
+                        <img class="pull-left img-circle" width="42" height="42" src="assets/data/users/{{idea.author.image}}" alt="{{idea.author.name}}">
+                        <a href=""><b>&nbsp;&nbsp;{{idea.author.name}}</b></a><br>
+                        &nbsp;&nbsp;{{idea.category}}
+                    </header>
+                    <section class="panel-body">
+                        <div ng-repeat="resource in idea.resources">
+                            <img class="img-responsive" ng-if="resource.isPrincipal" src="assets/data/resources/{{resource.location}}">
+                        </div>
+                        <h4><a href="">{{idea.title}}</a></h4>
+                        <p>{{idea.description}}</p>
+                    </section>
+                    <footer class="panel-footer">
+                        <ul class="list-inline list-unstyled">
+                            <li><a href=""><span class="glyphicon glyphicon-heart"></span> {{idea.cant_likes}}</a></li>
+                            <li><a href=""><span class="glyphicon glyphicon-comment"></span> {{idea.cant_comments}}</a></li>
+                            <li><a href=""><span class="glyphicon glyphicon-share-alt"></span> {{idea.cant_shares}}</a></li>
+                            <li><a href=""><span class="glyphicon glyphicon-star"></span></a></li>
+                            <li class="pull-right"><a href=""><span class="glyphicon glyphicon-warning-sign"></span></a></li>
+                        </ul>
+                    </footer>
+                </article>
+            </li>
+        </ul>
+    </div>
+</section>

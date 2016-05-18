@@ -1,0 +1,23 @@
+.ideas-board {
+    .panel {
+        margin: 0;
+    }
+}
+
+/*
+#grid[data-columns]::before {
+    content: '3 .column.size-1of3';
+}
+
+.column { 
+    display: inline-block;
+    vertical-align: top;
+    & + .column {
+        margin-left: 20px;
+    }
+    li {
+        margin-bottom: 20px;
+    }
+}
+.size-1of3 { width: 366px; }
+*/

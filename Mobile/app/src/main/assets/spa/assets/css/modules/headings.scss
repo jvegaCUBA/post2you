@@ -1,0 +1,88 @@
+/*                               ()_()                   
+                                 (. .)                  
+/----------------------------oo0--(_)--0oo-------------------------------------/
+
+/----     HEADINGS     HEADINGS     HEADINGS      HEADINGS      HEADINGS    ---/
+
+                               ooo0  0ooo
+/------------------------------(  )--(  )--------------------------------------/
+/*                             (_)    (_)                                     */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: $headings-font;
+    color: $headings-color;
+}
+
+h1, .h1 {
+    font-size: $h1-size;
+}
+
+h2, .h2 {
+    font-size: $h2-size;
+}
+
+h3, .h3 {
+    font-size: $h3-size;
+}
+
+h4, .h4 {
+    font-size: $h4-size;
+    @include heading-line(10px);
+}
+
+h5, .h5 {
+    font-size: $h5-size;
+    @include heading-line(9px);
+}
+
+h6, .h6 {
+    font-size: $h6-size;
+    @include heading-line(7px);
+}
+
+.heading-line {
+    position: relative;
+    text-align: center;
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 6px;
+        left: 0px;
+        margin-top: 15px;
+        border-top: solid 2px #E0DFDC;
+    }
+    span {
+        background-color: white;
+        position: relative;
+        z-index: 1;
+        padding: 0 20px;
+    }
+}
+
+.heading-inferior {
+    margin-top: 30px!important;
+}
+
+@media (max-width: 992px) {
+    h1, .h1 {
+        font-size: $h1-size - 6;
+    }
+    h2, .h2 {
+        font-size: $h1-size - 6;
+    }
+    .heading-line {
+        &:before {
+            width: 0;
+        }
+        span {
+            background-color: transparent;
+            padding: 0;
+        }
+    }
+    .heading-inferior {
+        margin-top: 50px!important;
+    }
+}
+
+

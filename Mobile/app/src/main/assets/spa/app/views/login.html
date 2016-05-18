@@ -1,0 +1,27 @@
+<br>
+<p class="text-center"><img src="assets/images/logo.png" width="200"></p>
+<br>
+<div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+    <article class="panel panel-default">
+        <section class="panel-body">
+            <h3 class="text-center">Encuentra ideas originales</h3><br>
+            <div class="alert alert-danger text-center" role="alert" ng-if="error">{{error}}</div>
+            <form name="loginForm" ng-submit="login()" novalidate="">
+                <div class="form-group">
+                    <input type="text" placeholder="Usuario o Email" class="form-control" ng-model="username" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Contraseña" class="form-control" ng-model="password" required="">
+                </div>
+                <div class="form-group">
+                    <a href="#/recovery-password" class="text-center btn-block">He olvidado mi contraseña</a>
+                </div>
+                <button class="btn btn-primary btn-block" ng-disabled="loginForm.$invalid">Iniciar sesión</button>
+                <hr>
+                <h3 class="text-center">¿No tienes cuenta?</h3><br>
+                <a href="#/singup" class="btn btn-info btn-block">Regístrate con Email</a>
+                <a href='' class="btn btn-primary btn-block">Regístrate con Facebook</a>
+            </form>
+        </section>
+    </article>
+</div>

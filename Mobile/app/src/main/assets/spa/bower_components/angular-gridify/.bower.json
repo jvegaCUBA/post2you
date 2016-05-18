@@ -1,0 +1,25 @@
+{
+  "name": "angular-gridify",
+  "version": "0.1.1",
+  "description": "Angular directive that creates a justified grid of elements",
+  "main": "angular-gridify.js",
+  "ignore": [
+    "*",
+    "!README.md",
+    "!angular-gridify.js"
+  ],
+  "dependencies": {
+    "angular": "^1.2.15"
+  },
+  "homepage": "https://github.com/homerjam/angular-gridify",
+  "_release": "0.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.1",
+    "commit": "6651f7617177ee7add5bc76ac5d7775a8b1a9bcf"
+  },
+  "_source": "https://github.com/homerjam/angular-gridify.git",
+  "_target": "^0.1.1",
+  "_originalSource": "angular-gridify",
+  "_direct": true
+}

@@ -1,0 +1,23 @@
+/*                               ()_()                   
+                                 (. .)                  
+/----------------------------oo0--(_)--0oo-------------------------------------/
+
+/----    FORMS    FORMS    FORMS     FORMS     FORMS     FORMS     FORMS    ---/
+
+                               ooo0  0ooo
+/------------------------------(  )--(  )--------------------------------------/
+/*                             (_)    (_)                                     */
+form {
+    margin: 50px 0;
+    [class^="col-"], [class*=" col-"] {
+        padding: 0 5px;
+    }
+    .row {
+        padding: 0 10px;
+    }    
+}
+.form-control {
+    box-shadow: none;
+    background-color: $form-bg;
+    border-radius: 0;
+}

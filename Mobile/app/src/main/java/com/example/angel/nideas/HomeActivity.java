@@ -79,13 +79,12 @@ public class HomeActivity extends ActionBarActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
             webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
 
-        webView.setWebViewClient(new WebViewClient(){
+        webView.setWebViewClient(new WebViewClient() {
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
 
                 String action = url.replace("http://nideas.com/", "");
-                switch (action)
-                {
+                switch (action) {
                     case "test":
 
                         String result = "zjfajshdfsdfbjasdbf";
@@ -98,8 +97,8 @@ public class HomeActivity extends ActionBarActivity {
             }
         });
 
-        webView.loadUrl("file:///android_asset/home.html");
-        //webView.loadDataWithBaseURL("file:///android_asset/",summary, "text/html", null, null);
+        //webView.loadUrl("file:///android_asset/home.html");
+        webView.loadUrl("file:///android_asset/spa/index.html");
     }
 
     @Override
@@ -144,7 +143,6 @@ public class HomeActivity extends ActionBarActivity {
                         mHandler.post(new Runnable() {
                             @Override
                             public void run() {
-                                //Toast.makeText(getBaseContext(), total.toString(), Toast.LENGTH_SHORT).show();
                                 NotificationCompat.Builder mBuilder =
                                         new NotificationCompat.Builder(getBaseContext())
                                                 .setSmallIcon(R.drawable.icon)
@@ -163,7 +161,7 @@ public class HomeActivity extends ActionBarActivity {
                                 mBuilder.setContentIntent(resultPendingIntent);
 
                                 // Sets an ID for the notification
-                                int mNotificationId = 001;
+                                int mNotificationId = 1;
                                 // Gets an instance of the NotificationManager service
                                 NotificationManager mNotifyMgr =
                                         (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
