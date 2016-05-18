@@ -15,6 +15,7 @@
     },
     "licenseUrl": "",
   "dependencies": {
+    "mkm.core": "1.0.0-*",
     "mkm.model": "1.0.0-*"
   },
     "projectUrl": "",
