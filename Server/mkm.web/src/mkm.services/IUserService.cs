@@ -12,7 +12,7 @@
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        Task<List<object>> GetUserFavorites(string userId);
+        Task<object> GetUserFavorites(string userId);
 
         /// <summary>
         /// 
@@ -35,26 +35,27 @@
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        Task<List<object>> GetUserPublications(string userId);
+        Task<object> GetUserPublications(string userId);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        Task<List<object>> GetUserFollows(string userId);
+        Task<object> GetUserFollows(string userId);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        Task<List<object>> GetUserFollowers(string userId);
+        Task<object> GetUserFollowers(string userId);
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="userId"></param>
+        /// <param name="userFollow"></param>
+        /// <param name="userFollowed"></param>
         /// <returns></returns>
         Task<object> AddUserFollow(string userFollow, string userFollowed);
 

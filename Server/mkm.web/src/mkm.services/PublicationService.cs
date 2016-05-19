@@ -61,13 +61,13 @@ namespace mkm.services
         public async Task<object> GetPublicationData(long postId)
         {
             var post = await this._context.Posts.FirstOrDefaultAsync(m => m.Id == postId);
-            if (post != null)
+            if (post == null)
             {
-                if (post is Ofert)
-                    return post as Ofert;
-                return post;
+                return null; //TODO:Sustituir por una respuesta para este caso
             }
-            return null;//TODO:Sustituir por una respuesta para este caso
+            if (post is Ofert)
+                return post as Ofert;
+            return post;
         }
 
         /// <summary>
@@ -78,6 +78,7 @@ namespace mkm.services
         /// <returns></returns>
         public async Task<object> AddPublication(string userId, Post publication)
         {
+            //TODO: Preparar en la respuesta las notificaciones pertinentes
             throw new NotImplementedException();
         }
 
@@ -89,6 +90,7 @@ namespace mkm.services
         /// <returns></returns>
         public async Task<object> AddOfert(string userId, Ofert publication)
         {
+            //TODO: Preparar en la respuesta las notificaciones pertinentes
             throw new NotImplementedException();
         }
 
@@ -148,6 +150,7 @@ namespace mkm.services
                 };
                 this._context.Categories.Add(tag);
                 //TODO:Sustituir por una respuesta para este caso
+                //TODO: Preparar en la respuesta las notificaciones pertinentes
                 return await this._context.SaveChangesAsync() > 0 ? true : false;
             }
             catch (OptimisticConcurrencyException)
@@ -196,6 +199,7 @@ namespace mkm.services
                     Text = comment
                 };
                 this._context.Comments.Add(newComment);
+                //TODO: Preparar en la respuesta las notificaciones pertinentes
                 return await this._context.SaveChangesAsync() > 0 ? true : false;
                 //TODO:Sustituir por una respuesta para este caso
             }
@@ -253,6 +257,7 @@ namespace mkm.services
                 this._context.Likes.Add(like);
                 pub.LikesCount++;
                 //TODO:Sustituir por una respuesta para este caso
+                //TODO: Preparar en la respuesta las notificaciones pertinentes
                 return await this._context.SaveChangesAsync() > 0 ? true : false;
             }
             catch (OptimisticConcurrencyException)
@@ -292,6 +297,7 @@ namespace mkm.services
                 pub.LikesCount--;
 
                 //TODO:Sustituir por una respuesta para este caso
+                //TODO: Preparar en la respuesta las notificaciones pertinentes
                 return await this._context.SaveChangesAsync() > 0 ? true : false;
             }
             catch (OptimisticConcurrencyException)

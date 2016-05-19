@@ -24,14 +24,14 @@ namespace mkm.Services
         }
 
         /// <summary>
-        /// 
+        /// Return user publications favorites
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task<List<object>> GetUserFavorites(string userId)
+        public async Task<object> GetUserFavorites(string userId)
         {
             if (string.IsNullOrEmpty(userId))
-                return null;
+                return null ;//TODO: Sustituir por una respuesta para esta situacion
 
             var favoritesPost = await this._context.Favorities
                 .Where(m => m.UserId == userId 
@@ -112,6 +112,7 @@ namespace mkm.Services
                     var favorite = new Favorite() { Created = DateTime.UtcNow, Post = post, User = user };
                     this._context.Add(favorite);
                     post.SharesCount++;
+                    //TODO: Preparar las notificaciones pertinentes para este caso
                     int saved = await this._context.SaveChangesAsync();
                     return saved > 0 ? true : false;
                 }
@@ -201,7 +202,7 @@ namespace mkm.Services
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task<List<object>> GetUserPublications(string userId)
+        public async Task<object> GetUserPublications(string userId)
         {
             /*TODO: Cambiar el tipo de retorno por un objeto generico
             que devuelva un codigo y un mensaje en cada camino*/
@@ -230,7 +231,7 @@ namespace mkm.Services
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task<List<object>> GetUserFollows(string userId)
+        public async Task<object> GetUserFollows(string userId)
         {
             var user = await this.FindUserById(userId);
             if (user != null)
@@ -248,7 +249,7 @@ namespace mkm.Services
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task<List<object>> GetUserFollowers(string userId)
+        public async Task<object> GetUserFollowers(string userId)
         {
             var user = await this.FindUserById(userId);
             if (user != null)
@@ -293,6 +294,7 @@ namespace mkm.Services
                 };
                 userFollow.FollowsCount++;
                 userFollowed.FollowersCount++;
+                //TODO: Create coresponding notifications to related users
                 this._context.Relations.Add(relation);
                 return await this._context.SaveChangesAsync() > 0 ? true : false;
             }
