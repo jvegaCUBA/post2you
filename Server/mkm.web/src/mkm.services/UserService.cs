@@ -31,10 +31,10 @@ namespace mkm.Services
         public async Task<object> GetUserFavorites(string userId)
         {
             if (string.IsNullOrEmpty(userId))
-                return null ;//TODO: Sustituir por una respuesta para esta situacion
+                return null;//TODO: Sustituir por una respuesta para esta situacion
 
             var favoritesPost = await this._context.Favorities
-                .Where(m => m.UserId == userId 
+                .Where(m => m.UserId == userId
                 && (m.Post.IsDeleted == null || m.Post.IsDeleted == false))
                 .Select(m => m.Post)
                 .OrderByDescending(m => m.Created)
@@ -123,11 +123,6 @@ namespace mkm.Services
 
                 return false;
             }
-            catch (OptimisticConcurrencyException)
-            {
-                //TODO:Devolver respuesta para los problemas de concurencia
-                throw;
-            }
             catch (Exception)
             {
 
@@ -164,11 +159,6 @@ namespace mkm.Services
                     return false;
                 }
 
-            }
-            catch (OptimisticConcurrencyException)
-            {
-                //TODO:Devolver respuesta para los problemas de concurencia
-                throw;
             }
             catch (Exception)
             {
@@ -241,7 +231,7 @@ namespace mkm.Services
                      .Select(m => m.UserFollowed).ToListAsync<object>();
             }
 
-            throw new ObjectNotFoundException();
+            return null;
         }
 
         /// <summary>
@@ -259,7 +249,7 @@ namespace mkm.Services
                      .Select(m => m.UserFollow).ToListAsync<object>();
             }
 
-            throw new ObjectNotFoundException();
+            return null;
         }
 
         /// <summary>
@@ -275,7 +265,7 @@ namespace mkm.Services
 
             if (userFollowed == null || userFollow == null)
             {
-                throw new ObjectNotFoundException();
+                return null;
             }
             var existRelation = await this._context.Relations
                                           .AnyAsync(m => m.UserFollowId == userFollow.Id && m.UserFollowedId == userFollowed.Id);

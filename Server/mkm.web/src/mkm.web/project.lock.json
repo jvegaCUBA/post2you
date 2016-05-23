@@ -1854,6 +1854,13 @@
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
+          "EntityFramework.Commands": "7.0.0-rc1-final",
+          "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
           "mkm.core": "1.0.0",
           "mkm.model": "1.0.0"
         },
@@ -3751,6 +3758,13 @@
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
+          "EntityFramework.Commands": "7.0.0-rc1-final",
+          "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
           "mkm.core": "1.0.0",
           "mkm.model": "1.0.0"
         }
@@ -6698,6 +6712,13 @@
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
+          "EntityFramework.Commands": "7.0.0-rc1-final",
+          "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
           "mkm.core": "1.0.0",
           "mkm.model": "1.0.0"
         },
@@ -8792,6 +8813,13 @@
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
+          "EntityFramework.Commands": "7.0.0-rc1-final",
+          "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
           "mkm.core": "1.0.0",
           "mkm.model": "1.0.0"
         },
@@ -10692,6 +10720,13 @@
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
+          "EntityFramework.Commands": "7.0.0-rc1-final",
+          "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
           "mkm.core": "1.0.0",
           "mkm.model": "1.0.0"
         }
@@ -13949,6 +13984,13 @@
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
+          "EntityFramework.Commands": "7.0.0-rc1-final",
+          "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
           "mkm.core": "1.0.0",
           "mkm.model": "1.0.0"
         }

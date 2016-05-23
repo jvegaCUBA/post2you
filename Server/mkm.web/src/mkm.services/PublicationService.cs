@@ -153,10 +153,6 @@ namespace mkm.services
                 //TODO: Preparar en la respuesta las notificaciones pertinentes
                 return await this._context.SaveChangesAsync() > 0 ? true : false;
             }
-            catch (OptimisticConcurrencyException)
-            {
-                throw;
-            }
             catch (Exception)
             {
 
@@ -202,10 +198,6 @@ namespace mkm.services
                 //TODO: Preparar en la respuesta las notificaciones pertinentes
                 return await this._context.SaveChangesAsync() > 0 ? true : false;
                 //TODO:Sustituir por una respuesta para este caso
-            }
-            catch (OptimisticConcurrencyException)
-            {
-                throw;
             }
             catch (Exception)
             {
@@ -260,10 +252,6 @@ namespace mkm.services
                 //TODO: Preparar en la respuesta las notificaciones pertinentes
                 return await this._context.SaveChangesAsync() > 0 ? true : false;
             }
-            catch (OptimisticConcurrencyException)
-            {
-                throw;
-            }
             catch (Exception)
             {
 
@@ -299,10 +287,6 @@ namespace mkm.services
                 //TODO:Sustituir por una respuesta para este caso
                 //TODO: Preparar en la respuesta las notificaciones pertinentes
                 return await this._context.SaveChangesAsync() > 0 ? true : false;
-            }
-            catch (OptimisticConcurrencyException)
-            {
-                throw; //TODO:Sustituir por una respuesta para este caso
             }
             catch (Exception)
             {

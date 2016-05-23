@@ -1,24 +1,31 @@
 {
-    "authors": [ "Lxxx" ],
-    "description": "NetKnowledge.Models",
-    "frameworks": {
-        "dnx451": {
-            "frameworkAssemblies": {
-                "System.Data.DataSetExtensions": "4.0.0.0",
-                "System.Data.Entity": "4.0.0.0",
-                "System.Data.Entity.Design": "4.0.0.0"
-            },
-            "dependencies": {
-            }
-        },
-        "dnxcore50": { }
-    },
-    "licenseUrl": "",
+  "authors": [ "Lxxx" ],
   "dependencies": {
+    "EntityFramework.Commands": "7.0.0-rc1-final",
+    "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
+    "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
+    "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+    "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+    "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc1-final",
+    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
     "mkm.core": "1.0.0-*",
     "mkm.model": "1.0.0-*"
   },
-    "projectUrl": "",
-    "tags": [ "" ],
-    "version": "1.0.0-*"
+  "description": "NetKnowledge.Models",
+  "frameworks": {
+    "dnx451": {
+      "frameworkAssemblies": {
+        "System.Data.DataSetExtensions": "4.0.0.0",
+        "System.Data.Entity": "4.0.0.0",
+        "System.Data.Entity.Design": "4.0.0.0"
+      },
+      "dependencies": {
+      }
+    },
+    "dnxcore50": { }
+  },
+  "licenseUrl": "",
+  "projectUrl": "",
+  "tags": [ "" ],
+  "version": "1.0.0-*"
 }
