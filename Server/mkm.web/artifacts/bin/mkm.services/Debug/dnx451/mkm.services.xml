@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>mkm.services</name>
+    </assembly>
+    <members>
+        <member name="M:mkm.Services.IUserService.GetUserFavorites(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.IUserService.InserPublicationToFavorite(System.Int64,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="publicationId"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.IUserService.DeletePublicationFromFavorite(System.Int64,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="publicationId"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.IUserService.GetUserPublications(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.IUserService.GetUserFollows(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.IUserService.GetUserFollowers(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.IUserService.AddUserFollow(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userFollow"></param>
+            <param name="userFollowed"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.IUserService.FindUserById(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.IUserService.FindUser(System.String,System.String)">
+            <summary>
+            Verify if anyone has the same user name or email
+            </summary>
+            <param name="userName"></param>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.IUserService.GetUserProfileData(System.String,System.String,System.String)">
+            <summary>
+            Return user profile data
+            </summary>
+            <param name="userId"></param>
+            <param name="userName"></param>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.UserService.#ctor(mkm.model.ApplicationDbContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:mkm.Services.UserService.GetUserFavorites(System.String)">
+            <summary>
+            Return user publications favorites
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.UserService.InserPublicationToFavorite(System.Int64,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="publicationId"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.UserService.DeletePublicationFromFavorite(System.Int64,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="publicationId"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.UserService.GetUserPublications(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.UserService.GetUserFollows(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.UserService.GetUserFollowers(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.Services.UserService.AddUserFollow(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userFollowId"></param>
+            <param name="userFollowedId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.IPublicationService.GetPublicationsForUser(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.IPublicationService.GetPublicationData(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="postId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.IPublicationService.AddPublication(System.String,mkm.model.Post)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="publication"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.IPublicationService.AddOfert(System.String,mkm.model.Ofert)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="publication"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.IPublicationService.VerifyPublication(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="postTitle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.IPublicationService.VerifyTag(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="tagTitle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.IPublicationService.InsertTag(System.String,System.String,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="tagName"></param>
+            <param name="parentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.IPublicationService.InsertComment(System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="comment"></param>
+            <param name="userId"></param>
+            <param name="publicationId"></param>
+            <param name="parentCommentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.IPublicationService.GetComments(System.String,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="publicationId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.IPublicationService.AddPublicationLike(System.String,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="publicationId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.IPublicationService.RemovePublicationLike(System.String,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="publicationId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.PublicationService.#ctor(mkm.model.ApplicationDbContext,mkm.Services.IUserService)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="userService"></param>
+        </member>
+        <member name="M:mkm.services.PublicationService.GetPublicationsForUser(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.PublicationService.GetPublicationData(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="postId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.PublicationService.AddPublication(System.String,mkm.model.Post)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="publication"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.PublicationService.AddOfert(System.String,mkm.model.Ofert)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="publication"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.PublicationService.VerifyPublication(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="postTitle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.PublicationService.VerifyTag(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="tagTitle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.PublicationService.InsertTag(System.String,System.String,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="tagName"></param>
+            <param name="parentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.PublicationService.InsertComment(System.String,System.String,System.Int64,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="comment"></param>
+            <param name="userId"></param>
+            <param name="publicationId"></param>
+            <param name="parentCommentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.PublicationService.GetComments(System.String,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="publicationId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.PublicationService.AddPublicationLike(System.String,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="publicationId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:mkm.services.PublicationService.RemovePublicationLike(System.String,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="publicationId"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

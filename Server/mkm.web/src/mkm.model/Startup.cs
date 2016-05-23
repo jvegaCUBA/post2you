@@ -29,7 +29,7 @@ namespace mkm.model
               .AddDbContext<ApplicationDbContext>(options =>
                   options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]).UseRowNumberForPaging());
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<User, IdentityRole>()
               .AddEntityFrameworkStores<ApplicationDbContext>()
               .AddDefaultTokenProviders();
 
@@ -37,6 +37,7 @@ namespace mkm.model
         }
         public void Configure(IApplicationBuilder app)
         {
+            
         }
     }
 }
